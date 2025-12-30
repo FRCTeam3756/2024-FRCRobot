@@ -7,13 +7,13 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-import frc.robot.constants.ShooterConstants;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.constants.ShooterConstants;
 
 public class ShooterSubsystem extends SubsystemBase {
-  private VictorSPX leftMotor;
-  private TalonSRX rightMotor;
+  private final VictorSPX leftMotor;
+  private final TalonSRX rightMotor;
 
   public ShooterSubsystem() {
     leftMotor = new VictorSPX(ShooterConstants.LEFT_MOTOR_ID);

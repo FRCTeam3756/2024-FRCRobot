@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ClimbingSubsystem extends SubsystemBase {
-  private Talon leftClaw = new Talon(2);
-  private Talon rightClaw = new Talon(3);
+  private final Talon leftClaw = new Talon(2);
+  private final Talon rightClaw = new Talon(3);
 
   public void ClimbingUp() {
     leftClaw.set(-1);
