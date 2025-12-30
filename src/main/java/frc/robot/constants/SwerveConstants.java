@@ -10,8 +10,8 @@ import edu.wpi.first.math.util.Units;
 
 public class SwerveConstants {
 
-    public static final double TURBO_DRIVE_MULTIPLIER = 0.15; // 1 is fast //TODO: Fix
-    public static final double SLOW_DRIVE_MULTIPLIER = 0.1; // Half is appropriate
+    public static final double TURBO_DRIVE_MULTIPLIER = 0.8;
+    public static final double SLOW_DRIVE_MULTIPLIER = 0.4;
 
     public static final double TRACK_WIDTH = Units.inchesToMeters(28);
     public static final double WHEEL_BASE = Units.inchesToMeters(32);
@@ -21,6 +21,7 @@ public class SwerveConstants {
     public static final Translation2d BRMODULEOFFSET = new Translation2d(-TRACK_WIDTH / 2.0, -WHEEL_BASE / 2.0);
 
     public static final double MAX_MODULE_SPEED = 4.8; // M/S
+    public static final double MAX_ROBOT_RADIAN_VELOCITY = 2.0;
 
     public static final double WHEEL_DIAMETER = Units.inchesToMeters(4);
     public static final double STEERING_GEAR_RATIO = 1.d / (150d / 7d);

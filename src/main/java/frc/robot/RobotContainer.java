@@ -5,6 +5,10 @@ package frc.robot;
 
 import java.util.List;
 
+import com.studica.frc.AHRS;
+import com.studica.frc.AHRS.NavXComType;
+import com.studica.frc.AHRS.NavXUpdateRate;
+
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.controller.ProfiledPIDController;
 import edu.wpi.first.math.geometry.Pose2d;
@@ -22,10 +26,8 @@ import frc.robot.commands.DriveCommand;
 import frc.robot.constants.AutoConstants;
 import frc.robot.constants.ControllerConstants;
 import frc.robot.constants.DriveConstants;
+import frc.robot.constants.SwerveConstants;
 import frc.robot.subsystems.DrivetrainSubsystem;
-import com.studica.frc.AHRS;
-import com.studica.frc.AHRS.NavXComType;
-import com.studica.frc.AHRS.NavXUpdateRate;
 
 public class RobotContainer {
 
@@ -49,8 +51,8 @@ public class RobotContainer {
 
     public Command getAutonomousCommand() {
         TrajectoryConfig trajectoryConfig = new TrajectoryConfig(
-                AutoConstants.kMaxSpeedMetersPerSecond,
-                AutoConstants.kMaxAccelerationMetersPerSecondSquared)
+                SwerveConstants.MAX_MODULE_SPEED,
+                AutoConstants.MAX_ACCELERATION)
                 .setKinematics(DriveConstants.KINEMATICS);
 
         Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
@@ -59,9 +61,9 @@ public class RobotContainer {
                 new Pose2d(2, -1, Rotation2d.fromDegrees(180)),
                 trajectoryConfig);
 
-        PIDController xController = new PIDController(AutoConstants.kPXController, 0, 0);
-        PIDController yController = new PIDController(AutoConstants.kPYController, 0, 0);
-        ProfiledPIDController thetaController = new ProfiledPIDController(AutoConstants.kPThetaController, 0, 0,
+        PIDController xController = new PIDController(AutoConstants.P_X_CONTROLLER, 0, 0);
+        PIDController yController = new PIDController(AutoConstants.P_Y_CONTROLLER, 0, 0);
+        ProfiledPIDController thetaController = new ProfiledPIDController(AutoConstants.P_THETA_CONTROLLER, 0, 0,
                 AutoConstants.kThetaControllerConstraints);
         thetaController.enableContinuousInput(-Math.PI, Math.PI);
 

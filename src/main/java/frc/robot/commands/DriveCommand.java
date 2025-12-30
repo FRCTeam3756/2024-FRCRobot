@@ -69,9 +69,9 @@ public class DriveCommand extends Command {
         double xSpeed = translationSpeed.getX();
         double ySpeed = translationSpeed.getY();
 
-        xSpeed *= DriveConstants.XY_SPEED_LIMIT * DriveConstants.MAX_ROBOT_VELOCITY;
-        ySpeed *= DriveConstants.XY_SPEED_LIMIT * DriveConstants.MAX_ROBOT_VELOCITY;
-        rotationSpeed *= DriveConstants.Z_SPEED_LIMIT * DriveConstants.MAX_ROBOT_RADIAN_VELOCITY;
+        xSpeed *= DriveConstants.XY_SPEED_LIMIT * SwerveConstants.MAX_MODULE_SPEED;
+        ySpeed *= DriveConstants.XY_SPEED_LIMIT * SwerveConstants.MAX_MODULE_SPEED;
+        rotationSpeed *= DriveConstants.Z_SPEED_LIMIT * SwerveConstants.MAX_ROBOT_RADIAN_VELOCITY;
 
         double targetMultiplier = xboxController.getLeftStickButton() ? SwerveConstants.TURBO_DRIVE_MULTIPLIER : SwerveConstants.SLOW_DRIVE_MULTIPLIER;
         double speedMultiplier = speedRateLimiter.calculate(targetMultiplier);

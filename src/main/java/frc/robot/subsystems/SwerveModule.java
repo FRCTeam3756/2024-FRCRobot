@@ -112,7 +112,7 @@ public final class SwerveModule {
 
     public void setModuleStateRaw(SwerveModuleState state) {
         state = optimizeState(state, new Rotation2d(getSteerPosition()));
-        double drive_command = state.speedMetersPerSecond / DriveConstants.MAX_MODULE_VELOCITY;
+        double drive_command = state.speedMetersPerSecond / SwerveConstants.MAX_MODULE_SPEED;
         driveMotor.set(drive_command * (motor_inv ? -1.0 : 1.0));
 
         double steercmd = steerPID.calculate(getSteerPosition(), state.angle.getRadians());

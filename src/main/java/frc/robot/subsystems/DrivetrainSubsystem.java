@@ -3,6 +3,8 @@
 // the WPILib BSD license file in the root directory of this project.
 package frc.robot.subsystems;
 
+import com.studica.frc.AHRS;
+
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
@@ -11,9 +13,8 @@ import edu.wpi.first.math.kinematics.SwerveDriveOdometry;
 import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import com.studica.frc.AHRS;
-
-import frc.robot.constants.*;
+import frc.robot.constants.DriveConstants;
+import frc.robot.constants.SwerveConstants;
 
 public class DrivetrainSubsystem extends SubsystemBase {
 
@@ -113,7 +114,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
     }
 
     public void setModuleStates(SwerveModuleState[] desiredStates) {
-        SwerveDriveKinematics.desaturateWheelSpeeds(desiredStates, DriveConstants.MAX_MODULE_VELOCITY);
+        SwerveDriveKinematics.desaturateWheelSpeeds(desiredStates, SwerveConstants.MAX_MODULE_SPEED);
         frontLeft.setModuleState(desiredStates[DriveConstants.ModuleIndices.FRONT_LEFT]);
         frontRight.setModuleState(desiredStates[DriveConstants.ModuleIndices.FRONT_RIGHT]);
         backRight.setModuleState(desiredStates[DriveConstants.ModuleIndices.REAR_RIGHT]);

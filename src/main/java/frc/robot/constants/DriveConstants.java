@@ -10,9 +10,6 @@ import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.util.Units;
 
 public final class DriveConstants {
-  public static final double MAX_MODULE_VELOCITY = 4.5;
-  public static final double MAX_ROBOT_VELOCITY = 4.5;
-  public static final double MAX_ROBOT_RADIAN_VELOCITY = 8.0;
 
   public static final double TRACK_WIDTH = Units.inchesToMeters(28);
   public static final double WHEEL_BASE = Units.inchesToMeters(32);
